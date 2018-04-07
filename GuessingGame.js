@@ -97,6 +97,7 @@ $(document).ready(function(){
   
   $('#hint-btn').on('click', function(){
     $('h3').text(`The answer might be: ${game.provideHint()}`)
+    $('#hint-btn').prop('disabled', true)
   })
   
   $('#reset-btn').on('click', function(){
@@ -105,7 +106,7 @@ $(document).ready(function(){
     $('h2').text("Guess a number...")
     $('h3').text("")
     $('li').text("---")
-    $('#hint-btn, #go, #player-input').prop('disabled', false)
+    $('#hint-btn, #go, #player-input, #hint-btn').prop('disabled', false)
   })
   
 })
