@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Great Phantasmo's Guessing Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../modules/bootstrap/bootstrap.css">
+  </head>
+  <body>
+
+    <div id='app'>
+      <div id='headers'>
+        <h1 class=toptext>The Great Phantasmo's Guessing Game</h1>
+        <h2 class=toptext>Guess a number...</h2>
+        <h3 class=toptext></h3>
+      </div>
+
+      <div id='main' class='col-sm text-center'>
+        <div id='input-parent'>
+            <input id='player-input' placeholder='1-100' maxlength='3' autofocus>
+            <button id='go' class="btn btn-success">Go!!</button>
+        </div>
+
+        <div>
+          <ul>
+            <li>---</li>
+            <li>---</li>
+            <li>---</li>
+            <li>---</li>
+            <li>---</li>
+          </ul>
+        </div>
+
+        <div id="menu-btns">
+          <button id="hint-btn" class='btn btn-lg btn-danger'>Hint</button>
+          <button id="reset-btn" class='btn btn-sm btn-warning'>Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div id='footer'>
+        <div class='row'>
+          <div class='col-sm text-center'>
+            <img src='fslogo.png'></img>
+          </div>
+          <div id='sig' class='text-center'>
+            Spencer W
+          </div>
+          <div class='col-sm text-center'>
+            <img src='ghalogo.png'></img>
+          </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='jquery.js'></script>
+    <script type='text/javascript' src='GuessingGame.js'></script>
+  
+  </body>
+</html>
