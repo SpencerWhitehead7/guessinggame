@@ -41,7 +41,7 @@ Game.prototype.playersGuessSubmission = function(num){
 Game.prototype.checkGuess = function(){
   function gameEnds(){
     $('h3').text('Reset the game')
-    $('#hint-btn, #go, #player-input').prop('disabled', true)
+    $('#hint-btn, #submit-input, #player-input').prop('disabled', true)
   }
   if(this.pastGuesses.includes(this.playersGuess)){
     return "You have already guessed that number. Guess again..."
@@ -76,9 +76,10 @@ Game.prototype.provideHint = function(){
   return shuffle([this.winningNumber, generateWinningNumber(), generateWinningNumber()])
 }
 
+
 $(document).ready(function(){
   var game = newGame()
-
+  
   function makeGuess(){
     var guess = +$('#player-input').val()
     var result = game.playersGuessSubmission(guess)
@@ -89,14 +90,15 @@ $(document).ready(function(){
       game.isLower() ? $('h2').text(`${result} Guess higher!`) : $('h2').text(`${result} Guess lower!`)
     }
   }
-
-  $('#go').on('click', makeGuess)
+  
+  $('#submit-input').on('click', makeGuess)
   $('#player-input').on('keypress', function(event){
     if(event.keyCode===13){makeGuess()}
   })
   
   $('#hint-btn').on('click', function(){
-    $('h3').text(`The answer might be: ${game.provideHint()}`)
+    var hints = game.provideHint()
+    $('h3').text(`The answer might be ${hints[0]}, ${hints[1]} or ${hints[2]}.`)
     $('#hint-btn').prop('disabled', true)
   })
   
@@ -106,7 +108,7 @@ $(document).ready(function(){
     $('h2').text("Guess a number...")
     $('h3').text("")
     $('li').text("---")
-    $('#hint-btn, #go, #player-input, #hint-btn').prop('disabled', false)
+    $('#hint-btn, #submit-input, #player-input, #hint-btn').prop('disabled', false)
   })
   
 })
